@@ -7,9 +7,8 @@ from termcolor import colored
 from time import sleep
 from urllib2 import urlopen, HTTPError
 import cloudconstants as k
-import nikkeys as nik
 
-cloudstack = CloudStack.Client(k.api, nik.apikey, nik.secret)
+cloudstack = CloudStack.Client(API_URI, YOUR_API_KEY, YOUR_API_SECRET)
 
 vmname = sys.argv[1]
 

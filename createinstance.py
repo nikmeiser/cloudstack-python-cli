@@ -7,9 +7,8 @@ from termcolor import colored
 from time import sleep
 from urllib2 import urlopen, HTTPError
 import cloudconstants as k
-import nikkeys as nik
 
-cloudstack = CloudStack.Client(k.api, nik.apikey, nik.secret)
+cloudstack = CloudStack.Client(API_URI, YOUR_API_KEY, YOUR_API_SECRET)
 projectid = k.proj_testautomation
 
 
@@ -38,7 +37,7 @@ else:
       asyncargs = {
           'jobid': jobid
       }
-      
+
       async = cloudstack.queryAsyncJobResult(asyncargs)
       ready = async['jobstatus']
       print '\nBuilding instance'
@@ -48,9 +47,9 @@ else:
         time.sleep(5)
         async = cloudstack.queryAsyncJobResult(asyncargs)
         ready = async['jobstatus']
-        
+
       result =  async['jobresult']
-      vmdetails = result['virtualmachine']  
+      vmdetails = result['virtualmachine']
       print "\nInstance created. Instance name is %s. Password = %s" % (vmdetails['name'], vmdetails['password'])
     except HTTPError, e:
       print e
