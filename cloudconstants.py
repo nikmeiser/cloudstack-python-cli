@@ -1,3 +1,5 @@
+# Note: This is just an example. The GUIDs here are fake and won't work in any environment
+
 api = 'http://cloudportal.somecompany.com/client/api'
 
 # Services
